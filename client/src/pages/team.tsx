@@ -7,7 +7,7 @@ export default function TeamPage() {
   const otherMembers = teamMembers.filter(member => !member.isFounder);
 
   return (
-    <div className="min-h-screen py-16 bg-gradient-to-br from-cream via-white to-cream/50">
+    <div className="min-h-screen py-16 bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in-up">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -16,7 +16,7 @@ export default function TeamPage() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animation-delay-200 animate-fade-in-up">
             Des ergothérapeutes expérimentés et passionnés, chacun avec ses spécialités pour vous accompagner au mieux
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent to-secondary mx-auto mt-8 rounded-full animation-delay-400 animate-fade-in-up"></div>
+          <div className="w-24 h-1 bg-primary mx-auto mt-8 rounded-full animation-delay-400 animate-fade-in-up"></div>
         </div>
 
         {/* Founders Section */}
@@ -28,9 +28,7 @@ export default function TeamPage() {
           
           <div className="flex justify-center max-w-4xl mx-auto">
             {founders.map((founder, index) => (
-              <Card key={founder.id} className={`group relative overflow-hidden bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-800 max-w-lg`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full -translate-y-20 translate-x-20 group-hover:scale-150 transition-transform duration-700"></div>
+              <Card key={founder.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-800 max-w-lg`}>
                 
                 <CardContent className="relative p-8 z-10">
                   <div className="text-center">
@@ -38,14 +36,14 @@ export default function TeamPage() {
                       <img 
                         src={founder.image} 
                         alt={`${founder.name}, ${founder.title}`}
-                        className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg hover-scale border-4 border-white group-hover:border-primary/20 transition-all duration-300"
+                        className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300"
                       />
-                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg animate-float">
+                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
                         <span className="text-white text-sm font-bold">★</span>
                       </div>
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">{founder.name}</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{founder.name}</h3>
                     <p className="text-primary font-semibold text-lg mb-2">{founder.title}</p>
                     {founder.experience && (
                       <p className="text-gray-600 text-sm mb-4 font-medium">{founder.experience}</p>
@@ -60,7 +58,7 @@ export default function TeamPage() {
                         <Badge 
                           key={specialty} 
                           variant="secondary" 
-                          className={`bg-gradient-to-r from-primary/10 to-accent/10 text-primary hover:from-primary/20 hover:to-accent/20 transition-all duration-300 hover-scale px-3 py-1 text-xs font-medium border border-primary/20 animation-delay-${idx * 100}`}
+                          className={`bg-primary/10 text-primary hover:bg-primary/20 transition-all duration-300 hover-scale px-3 py-1 text-xs font-medium border border-primary/20 animation-delay-${idx * 100}`}
                         >
                           {specialty}
                         </Badge>
@@ -83,8 +81,6 @@ export default function TeamPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {otherMembers.map((member, index) => (
               <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${200 + index * 100}`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/10 to-accent/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
                 
                 <CardContent className="relative p-6 z-10">
                   <div className="text-center">
@@ -92,12 +88,12 @@ export default function TeamPage() {
                       <img 
                         src={member.image} 
                         alt={`${member.name}, ${member.title}`}
-                        className="w-24 h-24 rounded-full mx-auto object-cover hover-scale border-3 border-white group-hover:border-secondary/20 transition-all duration-300 shadow-md"
+                        className="w-24 h-24 rounded-full mx-auto object-cover hover-scale border-3 border-white transition-all duration-300 shadow-md"
                       />
                     </div>
                     
-                    <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-secondary transition-colors duration-300">{member.name}</h3>
-                    <p className="text-secondary font-semibold mb-1">{member.title}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
+                    <p className="text-primary font-semibold mb-1">{member.title}</p>
                     {member.experience && (
                       <p className="text-gray-600 text-xs mb-3 font-medium">{member.experience}</p>
                     )}
@@ -108,23 +104,11 @@ export default function TeamPage() {
                     
                     <div className="flex flex-wrap gap-1 justify-center">
                       {member.specialties.map((specialty, idx) => {
-                        // Determine color based on specialty type
-                        let colorClass = "bg-accent/10 text-accent border-accent/20";
-                        if (specialty.toLowerCase().includes('seniors') || 
-                            specialty.toLowerCase().includes('neurologie') ||
-                            specialty.toLowerCase().includes('domicile') ||
-                            specialty.toLowerCase().includes('adaptation')) {
-                          colorClass = "bg-secondary/10 text-secondary border-secondary/20";
-                        } else if (specialty.toLowerCase().includes('ergonomie') || 
-                                   specialty.toLowerCase().includes('tms')) {
-                          colorClass = "bg-primary/10 text-primary border-primary/20";
-                        }
-                        
                         return (
                           <Badge 
                             key={specialty} 
                             variant="secondary" 
-                            className={`${colorClass} px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 animation-delay-${idx * 50}`}
+                            className={`bg-primary/10 text-primary border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 animation-delay-${idx * 50}`}
                           >
                             {specialty}
                           </Badge>
@@ -140,7 +124,7 @@ export default function TeamPage() {
 
         {/* Call to Action */}
         <div className="mt-20 text-center animate-fade-in-up">
-          <Card className="bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 border-0 shadow-lg hover-lift max-w-4xl mx-auto">
+          <Card className="bg-white border-0 shadow-lg hover-lift max-w-4xl mx-auto">
             <CardContent className="p-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Une équipe à votre écoute
@@ -152,7 +136,7 @@ export default function TeamPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={() => window.location.href = "/contact"}
-                  className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover-lift shadow-lg"
+                  className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover-lift shadow-lg"
                 >
                   Nous rencontrer
                 </button>

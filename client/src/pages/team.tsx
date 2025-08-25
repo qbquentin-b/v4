@@ -88,11 +88,9 @@ export default function TeamPage() {
                 
                 <CardContent className="relative p-6 z-10">
                   <div className="text-center">
-                    <div className="relative mb-4">
                       <img 
                         src={member.image} 
-                        alt={`${member.name}, ${member.title}`}
-                        className="w-24 h-24 rounded-full mx-auto object-cover hover-scale border-3 border-white transition-all duration-300 shadow-md"
+                        className="w-48 h-48 rounded-full mx-auto lg:mx-0 object-cover shadow-lg border-4 border-white transition-all duration-300"
                       />
                     </div>
                     

@@ -1,0 +1,78 @@
+🎯 Objectif du site
+Créer un site web clair, chaleureux et accessible qui reflète l’identité visuelle de Som’Ergo : un cabinet d’ergothérapie à l’écoute des besoins de chacun, de l’enfant à la personne âgée. Le site doit présenter les services, l’équipe pluridisciplinaire et faciliter la prise de contact et de rendez-vous.
+
+🏷️ Identité du cabinet
+
+Nom : Som’Ergo
+
+Adresse : 47 Avenue du Royaume-Uni, 80090 Amiens
+
+Fondatrice : Élodie Plommet, ergothérapeute diplômée depuis 2008
+
+Spécialités : Pédiatrie, troubles neurodéveloppementaux (TND), troubles sensoriels, troubles alimentaires, ergonomie au travail, accompagnement des personnes âgées
+
+Équipe : Léa Dupressoir, Mathilde Rouget, Noémie, Perrine Decourcelle, Bérénice Audureau, Corinne Bourgois
+
+🧩 Structure du site
+
+Accueil
+
+Présentation du cabinet et de sa mission : accompagner chaque étape de la vie avec bienveillance.
+
+Mise en avant des spécialités et de l’approche centrée sur la personne.
+
+Intégration du logo et d’une photo de l’équipe/cabinet.
+
+L’équipe
+
+Portraits des ergothérapeutes (prénom, spécialités, formations).
+
+Citation ou anecdote personnelle pour humaniser la présentation.
+
+Photo professionnelle.
+
+Exemple : « Noémie, spécialisée dans l’accompagnement des tout-petits (0-5 ans), travaille avec bienveillance sur les TND et les troubles alimentaires pédiatriques. »
+
+Nos services
+
+Enfants : développement moteur, troubles sensoriels, graphomotricité, alimentation.
+
+Adultes : ergonomie au travail, troubles musculo-squelettiques.
+
+Seniors : maintien à domicile, rééducation neurologique.
+
+Modalités : au cabinet, à domicile, en téléconsultation.
+
+Prendre rendez-vous
+
+Module de réservation en ligne.
+
+Coordonnées : téléphone, email.
+
+Horaires d’ouverture.
+
+Actualités / Blog
+
+Articles pédagogiques sur l’ergothérapie.
+
+Témoignages, événements (Semaine Nationale de l’Ergothérapie, forums, etc.).
+
+Contact
+
+Formulaire de contact.
+
+Carte interactive pour localiser le cabinet.
+
+🎨 Design et ton
+
+Palette de couleurs : inspirée du logo → tons doux et naturels (vert, bleu clair, jaune orangé, brun doux).
+
+Typographie : lisible, moderne, chaleureuse.
+
+Iconographie : visuels symbolisant les différentes étapes de la vie (enfants, adultes, seniors).
+
+Ton : professionnel, bienveillant, accessible.
+
+🔗 Réseaux sociaux
+
+Lien vers la page Facebook : Cabinet Som’Ergo - Cabinet d’Ergothérapie.

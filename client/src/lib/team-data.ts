@@ -37,6 +37,7 @@ export const teamMembers: TeamMember[] = [
     specialties: [
       "Développement des tout-petits",
       "Rééducation neurologique",
+      "Aménagement du domicile"
     ],
     image:
       "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",

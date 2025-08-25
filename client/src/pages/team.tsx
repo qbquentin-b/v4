@@ -28,28 +28,28 @@ export default function TeamPage() {
           
           <div className="flex justify-center max-w-5xl mx-auto">
             {founders.map((founder, index) => (
-              <Card key={founder.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-800 max-w-2xl w-full`}>
+              <Card key={founder.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-800 max-w-lg w-full`}>
                 
-                <CardContent className="relative p-12 z-10">
+                <CardContent className="relative p-8 z-10">
                   <div className="text-center">
                     <div className="relative mb-6">
                       <img 
                         src={founder.image} 
                         alt={`${founder.name}, ${founder.title}`}
-                        className="w-40 h-40 rounded-full mx-auto object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300"
+                        className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300"
                       />
                       <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
                         <span className="text-white text-sm font-bold">★</span>
                       </div>
                     </div>
                     
-                    <h3 className="text-3xl font-bold text-gray-900 mb-3">{founder.name}</h3>
-                    <p className="text-primary font-semibold text-xl mb-3">{founder.title}</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{founder.name}</h3>
+                    <p className="text-primary font-semibold text-lg mb-3">{founder.title}</p>
                     {founder.experience && (
-                      <p className="text-gray-600 text-base mb-6 font-medium">{founder.experience}</p>
+                      <p className="text-gray-600 text-sm mb-6 font-medium">{founder.experience}</p>
                     )}
                     
-                    <p className="text-gray-700 leading-relaxed mb-8 text-base max-w-3xl mx-auto">
+                    <p className="text-gray-700 leading-relaxed mb-8 text-sm max-w-3xl mx-auto">
                       {founder.description}
                     </p>
                     
@@ -58,7 +58,7 @@ export default function TeamPage() {
                         <Badge 
                           key={specialty} 
                           variant="secondary" 
-                          className={`bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all duration-300 hover-scale px-4 py-2 text-sm font-medium border border-primary/20 animation-delay-${idx * 100}`}
+                          className={`bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all duration-300 hover-scale px-3 py-1 text-xs font-medium border border-primary/20 animation-delay-${idx * 100}`}
                         >
                           {specialty}
                         </Badge>
@@ -78,37 +78,82 @@ export default function TeamPage() {
             <p className="text-lg text-gray-600">Des professionnels dévoués à votre bien-être</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
-            {otherMembers.map((member, index) => (
+          {/* Première ligne - 3 membres */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-8">
+            {otherMembers.slice(0, 3).map((member, index) => (
               <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${200 + index * 100}`}>
                 
-                <CardContent className="relative p-5 z-10">
+                <CardContent className="relative p-8 z-10">
                   <div className="text-center">
-                    <div className="relative mb-4">
+                    <div className="relative mb-6">
                       <img 
                         src={member.image} 
                         alt={`${member.name}, ${member.title}`}
-                        className="w-20 h-20 rounded-full mx-auto object-cover hover-scale border-3 border-white transition-all duration-300 shadow-md"
+                        className="w-32 h-32 rounded-full mx-auto object-cover hover-scale border-4 border-white transition-all duration-300 shadow-lg"
                       />
                     </div>
                     
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
-                    <p className="text-primary font-semibold mb-1 text-sm">{member.title}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                    <p className="text-primary font-semibold mb-2">{member.title}</p>
                     {member.experience && (
-                      <p className="text-gray-600 text-xs mb-3 font-medium">{member.experience}</p>
+                      <p className="text-gray-600 text-sm mb-4 font-medium">{member.experience}</p>
                     )}
                     
-                    <p className="text-gray-600 text-xs mb-4 leading-relaxed">
+                    <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                       {member.description}
                     </p>
                     
-                    <div className="flex flex-wrap gap-1 justify-center">
+                    <div className="flex flex-wrap gap-2 justify-center">
                       {member.specialties.map((specialty, idx) => {
                         return (
                           <Badge 
                             key={specialty} 
                             variant="secondary" 
-                            className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 animation-delay-${idx * 50}`}
+                            className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-3 py-1 text-xs font-medium border hover-scale transition-all duration-300 animation-delay-${idx * 50}`}
+                          >
+                            {specialty}
+                          </Badge>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Deuxième ligne - 2 membres centrés */}
+          <div className="flex justify-center gap-8 max-w-4xl mx-auto">
+            {otherMembers.slice(3, 5).map((member, index) => (
+              <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${500 + index * 100} w-full max-w-sm`}>
+                
+                <CardContent className="relative p-8 z-10">
+                  <div className="text-center">
+                    <div className="relative mb-6">
+                      <img 
+                        src={member.image} 
+                        alt={`${member.name}, ${member.title}`}
+                        className="w-32 h-32 rounded-full mx-auto object-cover hover-scale border-4 border-white transition-all duration-300 shadow-lg"
+                      />
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                    <p className="text-primary font-semibold mb-2">{member.title}</p>
+                    {member.experience && (
+                      <p className="text-gray-600 text-sm mb-4 font-medium">{member.experience}</p>
+                    )}
+                    
+                    <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                      {member.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {member.specialties.map((specialty, idx) => {
+                        return (
+                          <Badge 
+                            key={specialty} 
+                            variant="secondary" 
+                            className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-3 py-1 text-xs font-medium border hover-scale transition-all duration-300 animation-delay-${idx * 50}`}
                           >
                             {specialty}
                           </Badge>

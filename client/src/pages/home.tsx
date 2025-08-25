@@ -263,21 +263,7 @@ export default function HomePage() {
                 </CardContent>
               </Card>
               
-              <Card className="group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-400">
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-full -translate-y-12 translate-x-12 group-hover:scale-150 transition-transform duration-700"></div>
-                <CardContent className="relative p-8 text-center z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-secondary to-secondary/80 rounded-2xl mx-auto mb-6 flex items-center justify-center animate-float animation-delay-800 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Video className="text-white text-2xl" />
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-secondary transition-colors duration-300">
-                    Téléconsultation
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    Suivi à distance selon vos besoins
-                  </p>
-                </CardContent>
-              </Card>
+              
             </div>
           </div>
         </div>

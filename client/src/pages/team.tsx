@@ -33,37 +33,40 @@ export default function TeamPage() {
                 <CardContent className="relative p-12 z-10">
                   <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="text-center lg:text-left">
+                      <div className="relative mb-4">
                         <img 
-                      <img 
-                        src={founder.image} 
+                          src={founder.image} 
+                          alt={`${founder.name}, ${founder.title}`}
                           className="w-48 h-48 rounded-full mx-auto lg:mx-0 object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300"
-                        className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300"
+                        />
                         <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
-                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
-                        <span className="text-white text-sm font-bold">★</span>
+                          <span className="text-white text-sm font-bold">★</span>
+                        </div>
                       </div>
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{founder.name}</h3>
-                    <p className="text-primary font-semibold text-lg mb-2">{founder.title}</p>
-                    {founder.experience && (
-                      <p className="text-gray-600 text-sm mb-4 font-medium">{founder.experience}</p>
-                    )}
-                    
-                    <p className="text-gray-700 leading-relaxed mb-6 text-sm">
-                      {founder.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {founder.specialties.map((specialty, idx) => (
-                        <Badge 
-                          key={specialty} 
-                          variant="secondary" 
-                          className={`bg-primary/10 text-primary hover:bg-primary/20 transition-all duration-300 hover-scale px-3 py-1 text-xs font-medium border border-primary/20 animation-delay-${idx * 100}`}
-                        >
-                          {specialty}
-                        </Badge>
-                      ))}
+                    <div className="text-center lg:text-left">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-3">{founder.name}</h3>
+                      <p className="text-primary font-semibold text-xl mb-3">{founder.title}</p>
+                      {founder.experience && (
+                        <p className="text-gray-600 text-base mb-6 font-medium">{founder.experience}</p>
+                      )}
+                      
+                      <p className="text-gray-700 leading-relaxed mb-8 text-base">
+                        {founder.description}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                        {founder.specialties.map((specialty, idx) => (
+                          <Badge 
+                            key={specialty} 
+                            variant="secondary" 
+                            className={`bg-primary/10 text-primary hover:bg-primary/20 transition-all duration-300 hover-scale px-3 py-1 text-xs font-medium border border-primary/20 animation-delay-${idx * 100}`}
+                          >
+                            {specialty}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -93,30 +96,26 @@ export default function TeamPage() {
                       />
                     </div>
                     
-                    </div>
-                    
-                    <div className="text-center lg:text-left">
-                      <h3 className="text-3xl font-bold text-gray-900 mb-3">{founder.name}</h3>
-                      <p className="text-primary font-semibold text-xl mb-3">{founder.title}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                    <p className="text-primary font-semibold text-base mb-2">{member.title}</p>
+                    {member.experience && (
                       <p className="text-gray-600 text-xs mb-3 font-medium">{member.experience}</p>
-                        <p className="text-gray-600 text-base mb-6 font-medium">{founder.experience}</p>
+                    )}
                     
                     <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                      <p className="text-gray-700 leading-relaxed mb-8 text-base">
+                      {member.description}
                     </p>
                     
                     <div className="flex flex-wrap gap-1 justify-center">
-                      <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                        return (
-                          <Badge 
-                            key={specialty} 
-                            variant="secondary" 
-                            className={`bg-primary/10 text-primary border-primary/20 px-2 py-1 text-xs font-medium border animation-delay-${idx * 50}`}
-                          >
-                            {specialty}
-                          </Badge>
-                        );
-                      })}
+                      {member.specialties.map((specialty, idx) => (
+                        <Badge 
+                          key={specialty} 
+                          variant="secondary" 
+                          className={`bg-primary/10 text-primary border-primary/20 px-2 py-1 text-xs font-medium border animation-delay-${idx * 50}`}
+                        >
+                          {specialty}
+                        </Badge>
+                      ))}
                     </div>
                   </div>
                 </CardContent>

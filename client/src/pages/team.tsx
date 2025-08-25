@@ -22,13 +22,13 @@ export default function TeamPage() {
         {/* Founders Section */}
         <div className="mb-20">
           <div className="text-center mb-12 animate-fade-in-up animation-delay-600">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Nos fondatrices</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Notre fondatrice</h2>
             <p className="text-lg text-gray-600">À l'origine de Som'Ergo</p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="flex justify-center max-w-4xl mx-auto">
             {founders.map((founder, index) => (
-              <Card key={founder.id} className={`group relative overflow-hidden bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${800 + index * 200}`}>
+              <Card key={founder.id} className={`group relative overflow-hidden bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-800 max-w-lg`}>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full -translate-y-20 translate-x-20 group-hover:scale-150 transition-transform duration-700"></div>
                 

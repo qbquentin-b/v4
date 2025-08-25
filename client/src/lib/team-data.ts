@@ -30,10 +30,10 @@ export const teamMembers: TeamMember[] = [
   {
     id: "lea",
     name: "Léa Dupressoir",
-    title: "Cofondatrice & Ergothérapeute",
+    title: "Cotitulaire & Ergothérapeute",
     experience: "Au cabinet depuis 2019, cotitulaire depuis 2022",
     description:
-      "Cofondatrice du Cabinet Som'Ergo depuis 2022, Léa est passionnée par la pédiatrie et accompagne les enfants avec TND. Elle propose également des interventions à domicile pour adultes et personnes âgées.",
+      "Cotitulaire du Cabinet Som'Ergo depuis 2022, Léa est passionnée par la pédiatrie et accompagne les enfants avec TND. Elle propose également des interventions à domicile pour adultes et personnes âgées.",
     specialties: [
       "Développement des tout-petits",
       "Rééducation neurologique",
@@ -41,7 +41,7 @@ export const teamMembers: TeamMember[] = [
     ],
     image:
       "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
-    isFounder: true,
+    isFounder: false,
   },
   {
     id: "corinne",

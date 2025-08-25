@@ -61,7 +61,7 @@ export default function HomePage() {
                   <div className="text-sm text-gray-600">Ergothérapeutes</div>
                 </div>
                 <div className="text-center hover-scale">
-                  <div className="text-2xl font-bold text-primary">3</div>
+                  <div className="text-2xl font-bold text-primary">2</div>
                   <div className="text-sm text-gray-600">
                     Modalités d'intervention
                   </div>

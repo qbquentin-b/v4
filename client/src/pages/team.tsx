@@ -31,7 +31,7 @@ export default function TeamPage() {
               <Card key={founder.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-800 w-full`}>
                 
                 <CardContent className="relative p-8 z-10">
-                  <div className="grid lg:grid-cols-2 gap-6 items-center">
+                  <div className="grid lg:grid-cols-2 gap-4 items-center">
                     {/* Image Section */}
                     <div className="text-center lg:text-left">
                       <div className="relative inline-block">

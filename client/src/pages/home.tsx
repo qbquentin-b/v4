@@ -214,11 +214,11 @@ export default function HomePage() {
               >
                 {expertiseCards.map((card, index) => (
                   <div key={card.id} className="w-full flex-shrink-0 px-4">
-                    <Card className="group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up">
-                      <div className={`absolute inset-0 bg-gradient-to-br from-${card.color}/10 via-${card.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                      <div className={`absolute top-0 right-0 w-32 h-32 bg-${card.color}/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700`}></div>
+                    <Card className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up ${index === currentSlide ? 'shadow-2xl' : ''}`}>
+                      <div className={`absolute inset-0 bg-gradient-to-br from-${card.color}/10 via-${card.color}/5 to-transparent transition-opacity duration-500 ${index === currentSlide ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}></div>
+                      <div className={`absolute top-0 right-0 w-32 h-32 bg-${card.color}/5 rounded-full -translate-y-16 translate-x-16 transition-transform duration-700 ${index === currentSlide ? 'scale-150' : 'group-hover:scale-150'}`}></div>
                       <CardContent className="relative p-8 z-10">
-                        <div className={`w-16 h-16 bg-gradient-to-br from-${card.color} to-${card.color}/80 rounded-2xl flex items-center justify-center mb-6 animate-float shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                        <div className={`w-16 h-16 bg-gradient-to-br from-${card.color} to-${card.color}/80 rounded-2xl flex items-center justify-center mb-6 animate-float shadow-lg transition-transform duration-300 ${index === currentSlide ? 'scale-110' : 'group-hover:scale-110'}`}
                              style={{
                                background: card.color === 'accent' ? 'linear-gradient(to bottom right, hsl(var(--accent)), hsl(var(--accent) / 0.8))' :
                                          card.color === 'primary' ? 'linear-gradient(to bottom right, hsl(var(--primary)), hsl(var(--primary) / 0.8))' :
@@ -232,7 +232,7 @@ export default function HomePage() {
                         <ul className="space-y-2 text-gray-600 mb-6">
                           {card.services.map((service, idx) => (
                             <li key={service} className="flex items-center">
-                              <CheckCircle size={16} className={`text-${card.color} mr-3 group-hover:scale-110 transition-transform duration-200`} 
+                              <CheckCircle size={16} className={`text-${card.color} mr-3 transition-transform duration-200 ${index === currentSlide ? 'scale-110' : 'group-hover:scale-110'}`} 
                                          style={{color: card.color === 'accent' ? 'hsl(var(--accent))' :
                                                        card.color === 'primary' ? 'hsl(var(--primary))' :
                                                        'hsl(var(--secondary))'}} />
@@ -241,7 +241,7 @@ export default function HomePage() {
                           ))}
                         </ul>
                         <Link href={card.link}>
-                          <a className={`inline-flex items-center text-${card.color} font-semibold hover:text-${card.color}/80 transition-colors duration-200 group-hover:translate-x-1`}
+                          <a className={`inline-flex items-center text-${card.color} font-semibold hover:text-${card.color}/80 transition-colors duration-200 ${index === currentSlide ? 'translate-x-1' : 'group-hover:translate-x-1'}`}
                              style={{color: card.color === 'accent' ? 'hsl(var(--accent))' :
                                            card.color === 'primary' ? 'hsl(var(--primary))' :
                                            'hsl(var(--secondary))'}}>

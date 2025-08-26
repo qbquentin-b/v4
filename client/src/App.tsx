@@ -10,6 +10,7 @@ import Services from "./pages/services";
 import Contact from "./pages/contact";
 import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
+import CookieBanner from "./components/cookie-banner";
 
 function Router() {
   return (
@@ -25,6 +26,7 @@ function Router() {
         </Switch>
       </main>
       <Footer />
+      <CookieBanner />
     </>
   );
 }

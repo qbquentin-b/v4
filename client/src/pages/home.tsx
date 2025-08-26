@@ -122,6 +122,14 @@ export default function HomePage() {
                     Nous contacter
                   </Button>
                 </Link>
+                <Link href="/equipe">
+                  <Button
+                    size="lg"
+                    className="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-full hover-lift"
+                  >
+                    Rencontrer l'équipe
+                  </Button>
+                </Link>
                 <Link href="/services">
                   <Button
                     variant="outline"
@@ -385,6 +393,14 @@ export default function HomePage() {
               >
                 <Calendar className="mr-2" />
                 Nous contacter
+              </Button>
+            </Link>
+            <Link href="/equipe">
+              <Button
+                size="lg"
+                className="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-full"
+              >
+                Rencontrer l'équipe
               </Button>
             </Link>
             <Link href="/services">

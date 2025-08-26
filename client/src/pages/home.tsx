@@ -165,17 +165,17 @@ export default function HomePage() {
                 alt="Environnement thérapeutique chaleureux"
                 className="rounded-2xl shadow-2xl w-full hover-scale"
               />
-              <Card className="absolute -bottom-6 -left-6 bg-white shadow-lg animate-scale-in animation-delay-800 hover-lift">
+              <Card className="absolute -bottom-4 -left-4 lg:-bottom-6 lg:-left-6 bg-white shadow-lg animate-scale-in animation-delay-800 hover-lift max-w-xs">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-3">
                     <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center animate-float">
                       <Heart className="text-white" />
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">
+                      <div className="font-semibold text-gray-900 text-sm lg:text-base">
                         Approche centrée
                       </div>
-                      <div className="text-gray-600">sur la personne</div>
+                      <div className="text-gray-600 text-sm lg:text-base">sur la personne</div>
                     </div>
                   </div>
                 </CardContent>

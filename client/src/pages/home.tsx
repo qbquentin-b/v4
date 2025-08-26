@@ -122,8 +122,6 @@ export default function HomePage() {
                     Nous contacter
                   </Button>
                 </Link>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4 animation-delay-600 animate-fade-in-left">
                 <Link href="/services">
                   <Button
                     size="lg"
@@ -143,7 +141,7 @@ export default function HomePage() {
                   </Button>
                 </Link>
               </div>
-              <div className="flex items-center space-x-6 pt-4 animation-delay-800 animate-fade-in-left">
+              <div className="flex items-center space-x-6 pt-6 animation-delay-600 animate-fade-in-left">
                 <div className="text-center hover-scale">
                   <div className="text-2xl font-bold text-primary">15+</div>
                   <div className="text-sm text-gray-600">

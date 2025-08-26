@@ -283,36 +283,43 @@ export default function TeamPage() {
               >
                 {otherMembers.map((member, index) => (
                   <div key={member.id} className="w-full flex-shrink-0 px-4">
-                    <Card className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up ${index === currentSlide ? 'shadow-2xl' : ''}`}>
+                    <Card className={`group relative overflow-hidden bg-white border-0 shadow-lg transition-all duration-500 animate-fade-in-up ${index === currentSlide ? 'shadow-2xl scale-105' : 'shadow-md'}`}>
+                      <div className={`absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent transition-opacity duration-500 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}></div>
+                      <div className={`absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 transition-transform duration-700 ${index === currentSlide ? 'scale-150' : ''}`}></div>
                       
-                      <CardContent className="relative p-6 z-10">
-                        <div className="flex items-center space-x-6">
-                          <div className="relative flex-shrink-0">
+                      <CardContent className="relative p-8 z-10 text-center">
+                        <div className="space-y-6">
+                          <div className="relative inline-block">
                             <img 
                               src={member.image} 
                               alt={`${member.name}, ${member.title}`}
-                              className={`w-24 h-24 rounded-full object-cover border-4 border-white transition-all duration-300 shadow-lg ${index === currentSlide ? 'scale-110' : 'hover-scale'}`}
+                              className={`w-32 h-32 rounded-full object-cover border-4 border-white transition-all duration-300 shadow-lg mx-auto ${index === currentSlide ? 'scale-110' : ''}`}
                             />
+                            {index === currentSlide && (
+                              <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
+                                <span className="text-white text-sm font-bold">✓</span>
+                              </div>
+                            )}
                           </div>
                           
-                          <div className="flex-1 min-w-0">
-                            <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
-                            <p className="text-primary font-semibold mb-1 text-sm">{member.title}</p>
+                          <div>
+                            <h3 className={`text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 ${index === currentSlide ? 'text-primary' : ''}`}>{member.name}</h3>
+                            <p className="text-primary font-semibold mb-2">{member.title}</p>
                             {member.experience && (
-                              <p className="text-gray-600 text-xs mb-3 font-medium">{member.experience}</p>
+                              <p className="text-gray-600 text-sm mb-4 font-medium">{member.experience}</p>
                             )}
                             
-                            <p className="text-gray-600 text-xs mb-4 leading-relaxed">
+                            <p className="text-gray-700 text-sm mb-6 leading-relaxed max-w-sm mx-auto">
                               {member.description}
                             </p>
                             
-                            <div className="flex flex-wrap gap-1">
+                            <div className="flex flex-wrap gap-2 justify-center">
                               {member.specialties.map((specialty, idx) => {
                                 return (
                                   <Badge 
                                     key={specialty} 
                                     variant="secondary" 
-                                    className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border transition-all duration-300 ${index === currentSlide ? 'scale-110' : 'hover-scale'}`}
+                                    className={`bg-primary/10 text-primary border-primary/20 px-3 py-1 text-xs font-medium border transition-all duration-300 ${index === currentSlide ? 'scale-110 bg-primary text-white' : ''}`}
                                   >
                                     {specialty}
                                   </Badge>

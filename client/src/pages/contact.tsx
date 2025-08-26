@@ -81,7 +81,7 @@ export default function ContactPage() {
                       name="fullName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Nom complet *</FormLabel>
+                          <FormLabel>Nom du patient *</FormLabel>
                           <FormControl>
                             <Input 
                               placeholder="Votre nom complet" 

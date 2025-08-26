@@ -84,9 +84,9 @@ export default function TeamPage() {
             <p className="text-lg text-gray-600">Des professionnels dévoués à votre bien-être</p>
           </div>
           
-          {/* Première ligne - 3 membres */}
+          {/* Première ligne - 2 membres */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-8">
-            {otherMembers.slice(0, 3).map((member, index) => (
+            {otherMembers.slice(0, 2).map((member, index) => (
               <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${200 + index * 100}`}>
                 
                 <CardContent className="relative p-6 z-10">
@@ -130,10 +130,10 @@ export default function TeamPage() {
             ))}
           </div>
 
-          {/* Deuxième ligne - 2 membres centrés */}
+          {/* Deuxième ligne - 2 membres */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {otherMembers.slice(3).map((member, index) => (
-              <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${500 + index * 100}`}>
+            {otherMembers.slice(2, 4).map((member, index) => (
+              <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${400 + index * 100}`}>
                 
                 <CardContent className="relative p-6 z-10">
                   <div className="flex items-center space-x-6">
@@ -175,6 +175,56 @@ export default function TeamPage() {
               </Card>
             ))}
           </div>
+
+          {/* Troisième ligne - 1 membre centré */}
+          {otherMembers.length > 4 && (
+            <div className="flex justify-center mt-8">
+              <div className="w-full max-w-md">
+                {otherMembers.slice(4).map((member, index) => (
+                  <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${600 + index * 100}`}>
+                    
+                    <CardContent className="relative p-6 z-10">
+                      <div className="flex items-center space-x-6">
+                        <div className="relative flex-shrink-0">
+                          <img 
+                            src={member.image} 
+                            alt={`${member.name}, ${member.title}`}
+                            className="w-24 h-24 rounded-full object-cover hover-scale border-4 border-white transition-all duration-300 shadow-lg"
+                          />
+                        </div>
+                        
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+                          <p className="text-primary font-semibold mb-1 text-sm">{member.title}</p>
+                          {member.experience && (
+                            <p className="text-gray-600 text-xs mb-3 font-medium">{member.experience}</p>
+                          )}
+                          
+                          <p className="text-gray-600 text-xs mb-4 leading-relaxed">
+                            {member.description}
+                          </p>
+                          
+                          <div className="flex flex-wrap gap-1">
+                            {member.specialties.map((specialty, idx) => {
+                              return (
+                                <Badge 
+                                  key={specialty} 
+                                  variant="secondary" 
+                                  className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 animation-delay-${idx * 50}`}
+                                >
+                                  {specialty}
+                                </Badge>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Call to Action */}

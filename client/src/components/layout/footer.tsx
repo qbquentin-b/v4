@@ -121,7 +121,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © 2024 Som'Ergo - Cabinet d'Ergothérapie. Tous droits réservés.
+              © 2025 Som'Ergo - Cabinet d'Ergothérapie. Tous droits réservés.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">

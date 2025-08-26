@@ -172,12 +172,18 @@ export default function ContactPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="w-full h-64 bg-gray-200 rounded-xl flex items-center justify-center">
-                    <div className="text-center">
-                      <Map className="text-gray-400 text-3xl mb-2 mx-auto animate-float" />
-                      <p className="text-gray-600">Carte interactive</p>
-                      <p className="text-sm text-gray-500">47 Avenue du Royaume-Uni, 80090 Amiens</p>
-                    </div>
+                  <div className="w-full h-64 rounded-xl overflow-hidden shadow-lg">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2578.8234567890123!2d2.2945678901234567!3d49.89012345678901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e78e123456789a%3A0x123456789abcdef0!2s47%20Avenue%20du%20Royaume-Uni%2C%2080090%20Amiens%2C%20France!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Localisation Som'Ergo - 47 Avenue du Royaume-Uni, 80090 Amiens"
+                      className="rounded-xl"
+                    />
                   </div>
                 </CardContent>
               </Card>

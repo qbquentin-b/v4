@@ -47,7 +47,7 @@ export default function TeamPage() {
                     </div>
                     
                     {/* Content Section */}
-                    <div className="text-center lg:text-left lg:-ml-16">
+                    <div className="text-center lg:text-left lg:-ml-24">
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">{founder.name}</h3>
                       <p className="text-primary font-semibold text-lg mb-2">{founder.title}</p>
                       {founder.experience && (

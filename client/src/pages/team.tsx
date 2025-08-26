@@ -36,12 +36,12 @@ export default function TeamPage() {
                     <div className="text-center lg:text-left">
                       <div className="relative inline-block">
                         <img 
-                          src={founder.image} 
+                          src={founder.image}
                           alt={`${founder.name}, ${founder.title}`}
-                          className="w-36 h-36 rounded-full object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300 mx-auto lg:mx-0"
+                          className="w-44 h-44 rounded-full object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300 mx-auto lg:mx-0"
                         />
-                        <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
-                          <span className="text-white text-base font-bold">★</span>
+                        <div className="absolute -bottom-2 -right-2 w-11 h-11 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
+                          <span className="text-white text-lg font-bold">★</span>
                         </div>
                       </div>
                     </div>

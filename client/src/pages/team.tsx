@@ -68,42 +68,40 @@ export default function TeamPage() {
           
           <div className="max-w-6xl mx-auto">
             {founders.map((founder, index) => (
-              <Card key={founder.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-800 w-full`}>
+              <Card key={founder.id} className="group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-800">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
                 
-                <CardContent className="relative p-8 z-10">
-                  <div className="grid lg:grid-cols-2 items-center">
-                    {/* Image Section */}
-                    <div className="text-center lg:text-left lg:pr-4 lg:ml-8">
-                      <div className="relative inline-block">
-                        <img 
-                          src={founder.image}
-                          alt={`${founder.name}, ${founder.title}`}
-                          className="w-44 h-44 rounded-full object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300 mx-auto lg:mx-0"
-                        />
-                        <div className="absolute -bottom-2 -right-2 w-11 h-11 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
-                          <span className="text-white text-lg font-bold">★</span>
-                        </div>
+                <CardContent className="relative p-8 z-10 text-center">
+                  <div className="space-y-6">
+                    <div className="relative inline-block">
+                      <img 
+                        src={founder.image}
+                        alt={`${founder.name}, ${founder.title}`}
+                        className="w-40 h-40 rounded-full object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300 mx-auto group-hover:scale-110"
+                      />
+                      <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
+                        <span className="text-white text-lg font-bold">★</span>
                       </div>
                     </div>
                     
-                    {/* Content Section */}
-                    <div className="text-center lg:text-left lg:-ml-40">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{founder.name}</h3>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">{founder.name}</h3>
                       <p className="text-primary font-semibold text-lg mb-2">{founder.title}</p>
                       {founder.experience && (
                         <p className="text-gray-600 text-sm mb-4 font-medium">{founder.experience}</p>
                       )}
                       
-                      <p className="text-gray-700 leading-relaxed mb-6 text-sm">
+                      <p className="text-gray-700 leading-relaxed mb-6 text-sm max-w-2xl mx-auto">
                         {founder.description}
                       </p>
                       
-                      <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                      <div className="flex flex-wrap gap-2 justify-center">
                         {founder.specialties.map((specialty, idx) => (
                           <Badge 
                             key={specialty} 
                             variant="secondary" 
-                            className={`bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all duration-300 hover-scale px-3 py-1 text-xs font-medium border border-primary/20 animation-delay-${idx * 100}`}
+                            className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-3 py-1 text-xs font-medium border hover-scale transition-all duration-300 group-hover:scale-110 animation-delay-${idx * 50}`}
                           >
                             {specialty}
                           </Badge>
@@ -129,20 +127,25 @@ export default function TeamPage() {
             {/* Première ligne - 2 membres */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-8">
               {otherMembers.slice(0, 2).map((member, index) => (
-                <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${200 + index * 100}`}>
+                <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${200 + index * 100}`}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -translate-y-12 translate-x-12 group-hover:scale-150 transition-transform duration-700"></div>
                   
-                  <CardContent className="relative p-6 z-10">
-                    <div className="flex items-center space-x-6">
-                      <div className="relative flex-shrink-0">
+                  <CardContent className="relative p-6 z-10 text-center">
+                    <div className="space-y-4">
+                      <div className="relative inline-block">
                         <img 
                           src={member.image} 
                           alt={`${member.name}, ${member.title}`}
-                          className="w-24 h-24 rounded-full object-cover hover-scale border-4 border-white transition-all duration-300 shadow-lg"
+                          className="w-24 h-24 rounded-full object-cover border-4 border-white transition-all duration-300 shadow-lg mx-auto group-hover:scale-110"
                         />
+                        <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="text-white text-xs font-bold">✓</span>
+                        </div>
                       </div>
                       
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+                      <div>
+                        <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors duration-300">{member.name}</h3>
                         <p className="text-primary font-semibold mb-1 text-sm">{member.title}</p>
                         {member.experience && (
                           <p className="text-gray-600 text-xs mb-3 font-medium">{member.experience}</p>
@@ -152,13 +155,13 @@ export default function TeamPage() {
                           {member.description}
                         </p>
                         
-                        <div className="flex flex-wrap gap-1">
+                        <div className="flex flex-wrap gap-1 justify-center">
                           {member.specialties.map((specialty, idx) => {
                             return (
                               <Badge 
                                 key={specialty} 
                                 variant="secondary" 
-                                className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 animation-delay-${idx * 50}`}
+                                className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 group-hover:scale-110 animation-delay-${idx * 50}`}
                               >
                                 {specialty}
                               </Badge>
@@ -175,20 +178,25 @@ export default function TeamPage() {
             {/* Deuxième ligne - 2 membres */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {otherMembers.slice(2, 4).map((member, index) => (
-                <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${400 + index * 100}`}>
+                <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${400 + index * 100}`}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -translate-y-12 translate-x-12 group-hover:scale-150 transition-transform duration-700"></div>
                   
-                  <CardContent className="relative p-6 z-10">
-                    <div className="flex items-center space-x-6">
-                      <div className="relative flex-shrink-0">
+                  <CardContent className="relative p-6 z-10 text-center">
+                    <div className="space-y-4">
+                      <div className="relative inline-block">
                         <img 
                           src={member.image} 
                           alt={`${member.name}, ${member.title}`}
-                          className="w-24 h-24 rounded-full object-cover hover-scale border-4 border-white transition-all duration-300 shadow-lg"
+                          className="w-24 h-24 rounded-full object-cover border-4 border-white transition-all duration-300 shadow-lg mx-auto group-hover:scale-110"
                         />
+                        <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="text-white text-xs font-bold">✓</span>
+                        </div>
                       </div>
                       
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+                      <div>
+                        <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors duration-300">{member.name}</h3>
                         <p className="text-primary font-semibold mb-1 text-sm">{member.title}</p>
                         {member.experience && (
                           <p className="text-gray-600 text-xs mb-3 font-medium">{member.experience}</p>
@@ -198,13 +206,13 @@ export default function TeamPage() {
                           {member.description}
                         </p>
                         
-                        <div className="flex flex-wrap gap-1">
+                        <div className="flex flex-wrap gap-1 justify-center">
                           {member.specialties.map((specialty, idx) => {
                             return (
                               <Badge 
                                 key={specialty} 
                                 variant="secondary" 
-                                className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 animation-delay-${idx * 50}`}
+                                className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 group-hover:scale-110 animation-delay-${idx * 50}`}
                               >
                                 {specialty}
                               </Badge>
@@ -223,20 +231,25 @@ export default function TeamPage() {
               <div className="flex justify-center mt-8">
                 <div className="w-full lg:w-1/2 max-w-none">
                   {otherMembers.slice(4).map((member, index) => (
-                    <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${600 + index * 100}`}>
+                    <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${600 + index * 100}`}>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -translate-y-12 translate-x-12 group-hover:scale-150 transition-transform duration-700"></div>
                       
-                      <CardContent className="relative p-6 z-10">
-                        <div className="flex items-center space-x-6">
-                          <div className="relative flex-shrink-0">
+                      <CardContent className="relative p-6 z-10 text-center">
+                        <div className="space-y-4">
+                          <div className="relative inline-block">
                             <img 
                               src={member.image} 
                               alt={`${member.name}, ${member.title}`}
-                              className="w-24 h-24 rounded-full object-cover hover-scale border-4 border-white transition-all duration-300 shadow-lg"
+                              className="w-24 h-24 rounded-full object-cover border-4 border-white transition-all duration-300 shadow-lg mx-auto group-hover:scale-110"
                             />
+                            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <span className="text-white text-xs font-bold">✓</span>
+                            </div>
                           </div>
                           
-                          <div className="flex-1 min-w-0">
-                            <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+                          <div>
+                            <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors duration-300">{member.name}</h3>
                             <p className="text-primary font-semibold mb-1 text-sm">{member.title}</p>
                             {member.experience && (
                               <p className="text-gray-600 text-xs mb-3 font-medium">{member.experience}</p>
@@ -246,13 +259,13 @@ export default function TeamPage() {
                               {member.description}
                             </p>
                             
-                            <div className="flex flex-wrap gap-1">
+                            <div className="flex flex-wrap gap-1 justify-center">
                               {member.specialties.map((specialty, idx) => {
                                 return (
                                   <Badge 
                                     key={specialty} 
                                     variant="secondary" 
-                                    className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 animation-delay-${idx * 50}`}
+                                    className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 group-hover:scale-110 animation-delay-${idx * 50}`}
                                   >
                                     {specialty}
                                   </Badge>

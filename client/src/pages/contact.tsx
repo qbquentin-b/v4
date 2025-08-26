@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { insertContactMessageSchema } from "@shared/schema";
-import { MapPin, Phone, Mail, Facebook, Car, Bus, Accessibility, Map } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Instagram, Car, Bus, Accessibility, Map } from "lucide-react";
 import { z } from "zod";
 
 const contactFormSchema = insertContactMessageSchema;
@@ -230,7 +230,7 @@ export default function ContactPage() {
               <Card className="bg-gradient-to-br from-primary/5 to-transparent hover-lift animate-fade-in-right animation-delay-600">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Suivez-nous</h3>
-                  <div className="flex items-center space-x-4 mb-3">
+                  <div className="flex flex-col space-y-3 mb-4">
                     <a 
                       href="https://facebook.com/CabinetSomErgo" 
                       target="_blank" 
@@ -240,9 +240,18 @@ export default function ContactPage() {
                       <Facebook size={16} />
                       <span className="text-sm font-medium">Cabinet Som'Ergo</span>
                     </a>
+                    <a 
+                      href="https://instagram.com/cabinet_somergo" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-colors hover-scale"
+                    >
+                      <Instagram size={16} />
+                      <span className="text-sm font-medium">@cabinet_somergo</span>
+                    </a>
                   </div>
                   <p className="text-gray-600 text-sm">
-                    Retrouvez nos actualités, conseils et témoignages sur notre page Facebook
+                    Retrouvez nos actualités, conseils et témoignages sur nos réseaux sociaux
                   </p>
                 </CardContent>
               </Card>

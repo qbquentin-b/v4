@@ -122,25 +122,28 @@ export default function HomePage() {
                     Nous contacter
                   </Button>
                 </Link>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 animation-delay-600 animate-fade-in-left">
+                <Link href="/services">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full hover-lift"
+                  >
+                    Découvrir nos services
+                  </Button>
+                </Link>
                 <Link href="/equipe">
                   <Button
+                    variant="outline"
                     size="lg"
                     className="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-full hover-lift"
                   >
                     Rencontrer l'équipe
                   </Button>
                 </Link>
-                <Link href="/services">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full hover-lift"
-                  >
-                    Découvrir nos services
-                  </Button>
-                </Link>
               </div>
-              <div className="flex items-center space-x-6 pt-4 animation-delay-600 animate-fade-in-left">
+              <div className="flex items-center space-x-6 pt-4 animation-delay-800 animate-fade-in-left">
                 <div className="text-center hover-scale">
                   <div className="text-2xl font-bold text-primary">15+</div>
                   <div className="text-sm text-gray-600">

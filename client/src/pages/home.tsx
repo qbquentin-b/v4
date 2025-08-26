@@ -10,9 +10,64 @@ import {
   Building,
   Home,
   Video,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+import { useState } from "react";
 
 export default function HomePage() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const expertiseCards = [
+    {
+      id: "children",
+      title: "Enfants",
+      icon: Users,
+      color: "accent",
+      services: [
+        "Développement moteur",
+        "Troubles sensoriels", 
+        "Graphomotricité",
+        "Troubles alimentaires"
+      ],
+      link: "/services"
+    },
+    {
+      id: "adults", 
+      title: "Adultes",
+      icon: Users,
+      color: "primary",
+      services: [
+        "Ergonomie au travail",
+        "Troubles musculo-squelettiques",
+        "Réadaptation fonctionnelle", 
+        "Prévention des TMS"
+      ],
+      link: "/services"
+    },
+    {
+      id: "seniors",
+      title: "Seniors", 
+      icon: Users,
+      color: "secondary",
+      services: [
+        "Maintien à domicile",
+        "Rééducation neurologique",
+        "Adaptation du logement",
+        "Prévention des chutes"
+      ],
+      link: "/services"
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % expertiseCards.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + expertiseCards.length) % expertiseCards.length);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -107,117 +162,129 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Children Services */}
-            <Card className="group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
-              <CardContent className="relative p-8 z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent/80 rounded-2xl flex items-center justify-center mb-6 animate-float shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <Users className="text-white text-2xl" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-accent transition-colors duration-300">
-                  Enfants
-                </h3>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-accent mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Développement moteur
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-accent mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Troubles sensoriels
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-accent mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Graphomotricité
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-accent mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Troubles alimentaires
-                  </li>
-                </ul>
-                <Link href="/services">
-                  <a className="inline-flex items-center text-accent font-semibold hover:text-accent/80 transition-colors duration-200 group-hover:translate-x-1">
-                    En savoir plus →
-                  </a>
-                </Link>
-              </CardContent>
-            </Card>
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8">
+            {expertiseCards.map((card, index) => (
+              <Card key={card.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${index * 200}`}>
+                <div className={`absolute inset-0 bg-gradient-to-br from-${card.color}/10 via-${card.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                <div className={`absolute top-0 right-0 w-32 h-32 bg-${card.color}/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700`}></div>
+                <CardContent className="relative p-8 z-10">
+                  <div className={`w-16 h-16 bg-gradient-to-br from-${card.color} to-${card.color}/80 rounded-2xl flex items-center justify-center mb-6 animate-float shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                       style={{
+                         background: card.color === 'accent' ? 'linear-gradient(to bottom right, hsl(var(--accent)), hsl(var(--accent) / 0.8))' :
+                                   card.color === 'primary' ? 'linear-gradient(to bottom right, hsl(var(--primary)), hsl(var(--primary) / 0.8))' :
+                                   'linear-gradient(to bottom right, hsl(var(--secondary)), hsl(var(--secondary) / 0.8))',
+                         animationDelay: card.color === 'accent' ? '0s' : card.color === 'primary' ? '0.4s' : '0.8s'
+                       }}>
+                    <card.icon className="text-white text-2xl" />
+                  </div>
+                  <h3 className={`text-xl font-bold text-gray-900 mb-4 group-hover:text-${card.color} transition-colors duration-300`}>
+                    {card.title}
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 mb-6">
+                    {card.services.map((service, idx) => (
+                      <li key={service} className="flex items-center">
+                        <CheckCircle size={16} className={`text-${card.color} mr-3 group-hover:scale-110 transition-transform duration-200`} 
+                                   style={{color: card.color === 'accent' ? 'hsl(var(--accent))' :
+                                                 card.color === 'primary' ? 'hsl(var(--primary))' :
+                                                 'hsl(var(--secondary))'}} />
+                        {service}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href={card.link}>
+                    <a className={`inline-flex items-center text-${card.color} font-semibold hover:text-${card.color}/80 transition-colors duration-200 group-hover:translate-x-1`}
+                       style={{color: card.color === 'accent' ? 'hsl(var(--accent))' :
+                                     card.color === 'primary' ? 'hsl(var(--primary))' :
+                                     'hsl(var(--secondary))'}}>
+                      En savoir plus →
+                    </a>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
 
-            {/* Adult Services */}
-            <Card className="group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-200">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
-              <CardContent className="relative p-8 z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-6 animate-float animation-delay-400 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <Users className="text-white text-2xl" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors duration-300">
-                  Adultes
-                </h3>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-primary mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Ergonomie au travail
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-primary mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Troubles musculo-squelettiques
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-primary mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Réadaptation fonctionnelle
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-primary mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Prévention des TMS
-                  </li>
-                </ul>
-                <Link href="/services">
-                  <a className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors duration-200 group-hover:translate-x-1">
-                    En savoir plus →
-                  </a>
-                </Link>
-              </CardContent>
-            </Card>
+          {/* Mobile Carousel */}
+          <div className="md:hidden relative">
+            <div className="overflow-hidden">
+              <div 
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {expertiseCards.map((card, index) => (
+                  <div key={card.id} className="w-full flex-shrink-0 px-4">
+                    <Card className="group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up">
+                      <div className={`absolute inset-0 bg-gradient-to-br from-${card.color}/10 via-${card.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                      <div className={`absolute top-0 right-0 w-32 h-32 bg-${card.color}/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700`}></div>
+                      <CardContent className="relative p-8 z-10">
+                        <div className={`w-16 h-16 bg-gradient-to-br from-${card.color} to-${card.color}/80 rounded-2xl flex items-center justify-center mb-6 animate-float shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                             style={{
+                               background: card.color === 'accent' ? 'linear-gradient(to bottom right, hsl(var(--accent)), hsl(var(--accent) / 0.8))' :
+                                         card.color === 'primary' ? 'linear-gradient(to bottom right, hsl(var(--primary)), hsl(var(--primary) / 0.8))' :
+                                         'linear-gradient(to bottom right, hsl(var(--secondary)), hsl(var(--secondary) / 0.8))'
+                             }}>
+                          <card.icon className="text-white text-2xl" />
+                        </div>
+                        <h3 className={`text-xl font-bold text-gray-900 mb-4 group-hover:text-${card.color} transition-colors duration-300`}>
+                          {card.title}
+                        </h3>
+                        <ul className="space-y-2 text-gray-600 mb-6">
+                          {card.services.map((service, idx) => (
+                            <li key={service} className="flex items-center">
+                              <CheckCircle size={16} className={`text-${card.color} mr-3 group-hover:scale-110 transition-transform duration-200`} 
+                                         style={{color: card.color === 'accent' ? 'hsl(var(--accent))' :
+                                                       card.color === 'primary' ? 'hsl(var(--primary))' :
+                                                       'hsl(var(--secondary))'}} />
+                              {service}
+                            </li>
+                          ))}
+                        </ul>
+                        <Link href={card.link}>
+                          <a className={`inline-flex items-center text-${card.color} font-semibold hover:text-${card.color}/80 transition-colors duration-200 group-hover:translate-x-1`}
+                             style={{color: card.color === 'accent' ? 'hsl(var(--accent))' :
+                                           card.color === 'primary' ? 'hsl(var(--primary))' :
+                                           'hsl(var(--secondary))'}}>
+                            En savoir plus →
+                          </a>
+                        </Link>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-            {/* Senior Services */}
-            <Card className="group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-400">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
-              <CardContent className="relative p-8 z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-secondary to-secondary/80 rounded-2xl flex items-center justify-center mb-6 animate-float animation-delay-800 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <Users className="text-white text-2xl" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-secondary transition-colors duration-300">
-                  Seniors
-                </h3>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-secondary mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Maintien à domicile
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-secondary mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Rééducation neurologique
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-secondary mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Adaptation du logement
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle size={16} className="text-secondary mr-3 group-hover:scale-110 transition-transform duration-200" />
-                    Prévention des chutes
-                  </li>
-                </ul>
-                <Link href="/services">
-                  <a className="inline-flex items-center text-secondary font-semibold hover:text-secondary/80 transition-colors duration-200 group-hover:translate-x-1">
-                    En savoir plus →
-                  </a>
-                </Link>
-              </CardContent>
-            </Card>
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200 z-10"
+              aria-label="Slide précédent"
+            >
+              <ChevronLeft className="text-gray-600" size={20} />
+            </button>
+            
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200 z-10"
+              aria-label="Slide suivant"
+            >
+              <ChevronRight className="text-gray-600" size={20} />
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {expertiseCards.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                    currentSlide === index ? 'bg-primary' : 'bg-gray-300'
+                  }`}
+                  aria-label={`Aller au slide ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Modalities */}

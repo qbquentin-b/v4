@@ -34,7 +34,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-semibold mb-4">Liens rapides</h4>
             <ul className="space-y-2 text-sm">
               <li>
@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-semibold mb-4">Nos spécialités</h4>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>Pédiatrie</li>

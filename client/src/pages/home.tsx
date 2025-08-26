@@ -14,9 +14,12 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const expertiseCards = [
     {
@@ -68,6 +71,31 @@ export default function HomePage() {
     setCurrentSlide((prev) => (prev - 1 + expertiseCards.length) % expertiseCards.length);
   };
 
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(0); // Reset touchEnd
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+  };
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -207,7 +235,12 @@ export default function HomePage() {
 
           {/* Mobile Carousel */}
           <div className="md:hidden relative">
-            <div className="overflow-hidden">
+            <div 
+              className="overflow-hidden"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               <div 
                 className="flex transition-transform duration-300 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}

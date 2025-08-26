@@ -70,14 +70,14 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-100 py-4">
-            <div className="space-y-3">
+            <div className="space-y-4 px-2">
               {navigation.map((item) => (
                 <Link key={item.name} href={item.href}>
                   <a
-                    className={`block font-medium ${
+                    className={`block font-medium py-2 px-3 rounded-lg transition-colors ${
                       location === item.href
-                        ? "text-primary font-semibold"
-                        : "text-gray-700 hover:text-primary"
+                        ? "text-primary font-semibold bg-primary/5"
+                        : "text-gray-700 hover:text-primary hover:bg-gray-50"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -87,7 +87,7 @@ export default function Header() {
               ))}
               <Link href="/contact">
                 <Button
-                  className="w-full bg-accent hover:bg-accent/90 text-white rounded-full"
+                  className="w-full bg-accent hover:bg-accent/90 text-white rounded-full mt-4"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Nous contacter

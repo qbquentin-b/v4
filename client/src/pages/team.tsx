@@ -61,14 +61,14 @@ export default function TeamPage() {
 
         {/* Founders Section */}
         <div className="mb-20">
-          <div className="text-center mb-12 animate-fade-in-up animation-delay-600">
+          <div className="text-center mb-12 animate-fade-in-up animation-delay-200">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Notre fondatrice</h2>
             <p className="text-lg text-gray-600">À l'origine de Som'Ergo</p>
           </div>
           
           <div className="max-w-6xl mx-auto">
             {founders.map((founder, index) => (
-              <Card key={founder.id} className="group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-800">
+              <Card key={founder.id} className="group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-400">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
                 
@@ -101,7 +101,7 @@ export default function TeamPage() {
                           <Badge 
                             key={specialty} 
                             variant="secondary" 
-                            className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-3 py-1 text-xs font-medium border hover-scale transition-all duration-300 group-hover:scale-110 animation-delay-${idx * 50}`}
+                            className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-3 py-1 text-xs font-medium border transition-all duration-300 animation-delay-${idx * 50}`}
                           >
                             {specialty}
                           </Badge>
@@ -161,7 +161,7 @@ export default function TeamPage() {
                               <Badge 
                                 key={specialty} 
                                 variant="secondary" 
-                                className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 group-hover:scale-110 animation-delay-${idx * 50}`}
+                                className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border transition-all duration-300 animation-delay-${idx * 50}`}
                               >
                                 {specialty}
                               </Badge>
@@ -212,7 +212,7 @@ export default function TeamPage() {
                               <Badge 
                                 key={specialty} 
                                 variant="secondary" 
-                                className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 group-hover:scale-110 animation-delay-${idx * 50}`}
+                                className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border transition-all duration-300 animation-delay-${idx * 50}`}
                               >
                                 {specialty}
                               </Badge>
@@ -265,7 +265,7 @@ export default function TeamPage() {
                                   <Badge 
                                     key={specialty} 
                                     variant="secondary" 
-                                    className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border hover-scale transition-all duration-300 group-hover:scale-110 animation-delay-${idx * 50}`}
+                                    className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-2 py-1 text-xs font-medium border transition-all duration-300 animation-delay-${idx * 50}`}
                                   >
                                     {specialty}
                                   </Badge>

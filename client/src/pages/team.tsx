@@ -179,7 +179,7 @@ export default function TeamPage() {
           {/* Troisième ligne - 1 membre centré */}
           {otherMembers.length > 4 && (
             <div className="flex justify-center mt-8">
-              <div className="w-full max-w-md">
+              <div className="w-full lg:w-1/2 max-w-none">
                 {otherMembers.slice(4).map((member, index) => (
                   <Card key={member.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-${600 + index * 100}`}>
                     

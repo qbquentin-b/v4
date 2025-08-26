@@ -235,19 +235,19 @@ export default function ContactPage() {
                       href="https://facebook.com/CabinetSomErgo" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors hover-scale"
+                      className="flex items-center space-x-2 bg-blue-600 text-white px-3 py-1.5 rounded-full hover:bg-blue-700 transition-colors hover-scale"
                     >
-                      <Facebook size={16} />
-                      <span className="text-sm font-medium">Cabinet Som'Ergo</span>
+                      <Facebook size={14} />
+                      <span className="text-xs font-medium">Cabinet Som'Ergo</span>
                     </a>
                     <a 
                       href="https://instagram.com/cabinet_somergo" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-colors hover-scale"
+                      className="flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1.5 rounded-full hover:from-purple-600 hover:to-pink-600 transition-colors hover-scale"
                     >
-                      <Instagram size={16} />
-                      <span className="text-sm font-medium">@cabinet_somergo</span>
+                      <Instagram size={14} />
+                      <span className="text-xs font-medium">@cabinet_somergo</span>
                     </a>
                   </div>
                   <p className="text-gray-600 text-sm">

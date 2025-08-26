@@ -160,13 +160,13 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="relative animate-fade-in-right">
+            <div className="relative animate-fade-in-right ml-8 lg:ml-12">
               <img
                 src="https://physioextra.ca/wp-content/uploads/entete-ergo-ped-4-5-ans.png"
                 alt="Environnement thérapeutique chaleureux"
                 className="rounded-2xl shadow-2xl w-full hover-scale"
               />
-              <Card className="absolute -bottom-4 -left-4 lg:-bottom-6 lg:-left-6 bg-white shadow-lg animate-scale-in animation-delay-800 hover-lift max-w-xs">
+              <Card className="absolute -bottom-4 -right-4 lg:-bottom-6 lg:-right-6 bg-white shadow-lg animate-scale-in animation-delay-800 hover-lift max-w-xs">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-3">
                     <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center animate-float">

@@ -33,7 +33,7 @@ export default function TeamPage() {
                 <CardContent className="relative p-8 z-10">
                   <div className="grid lg:grid-cols-2 gap-4 items-center">
                     {/* Image Section */}
-                    <div className="text-center lg:text-left">
+                    <div className="text-center lg:text-left lg:pr-2">
                       <div className="relative inline-block">
                         <img 
                           src={founder.image}
@@ -47,7 +47,7 @@ export default function TeamPage() {
                     </div>
                     
                     {/* Content Section */}
-                    <div className="text-center lg:text-left">
+                    <div className="text-center lg:text-left lg:pl-2">
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">{founder.name}</h3>
                       <p className="text-primary font-semibold text-lg mb-2">{founder.title}</p>
                       {founder.experience && (

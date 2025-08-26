@@ -26,43 +26,49 @@ export default function TeamPage() {
             <p className="text-lg text-gray-600">À l'origine de Som'Ergo</p>
           </div>
           
-          <div className="flex justify-center max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             {founders.map((founder, index) => (
-              <Card key={founder.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-800 max-w-lg w-full`}>
+              <Card key={founder.id} className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-800 w-full`}>
                 
                 <CardContent className="relative p-8 z-10">
-                  <div className="text-center">
-                    <div className="relative mb-6">
-                      <img 
-                        src={founder.image} 
-                        alt={`${founder.name}, ${founder.title}`}
-                        className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300"
-                      />
-                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
-                        <span className="text-white text-sm font-bold">★</span>
+                  <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    {/* Image Section */}
+                    <div className="text-center lg:text-left">
+                      <div className="relative inline-block">
+                        <img 
+                          src={founder.image} 
+                          alt={`${founder.name}, ${founder.title}`}
+                          className="w-48 h-48 rounded-full object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300 mx-auto lg:mx-0"
+                        />
+                        <div className="absolute -bottom-3 -right-3 w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
+                          <span className="text-white text-lg font-bold">★</span>
+                        </div>
                       </div>
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{founder.name}</h3>
-                    <p className="text-primary font-semibold text-lg mb-3">{founder.title}</p>
-                    {founder.experience && (
-                      <p className="text-gray-600 text-sm mb-6 font-medium">{founder.experience}</p>
-                    )}
-                    
-                    <p className="text-gray-700 leading-relaxed mb-8 text-sm max-w-3xl mx-auto">
-                      {founder.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {founder.specialties.map((specialty, idx) => (
-                        <Badge 
-                          key={specialty} 
-                          variant="secondary" 
-                          className={`bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all duration-300 hover-scale px-3 py-1 text-xs font-medium border border-primary/20 animation-delay-${idx * 100}`}
-                        >
-                          {specialty}
-                        </Badge>
-                      ))}
+                    {/* Content Section */}
+                    <div className="text-center lg:text-left">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-3">{founder.name}</h3>
+                      <p className="text-primary font-semibold text-xl mb-3">{founder.title}</p>
+                      {founder.experience && (
+                        <p className="text-gray-600 text-base mb-6 font-medium">{founder.experience}</p>
+                      )}
+                      
+                      <p className="text-gray-700 leading-relaxed mb-8 text-base">
+                        {founder.description}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                        {founder.specialties.map((specialty, idx) => (
+                          <Badge 
+                            key={specialty} 
+                            variant="secondary" 
+                            className={`bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all duration-300 hover-scale px-4 py-2 text-sm font-medium border border-primary/20 animation-delay-${idx * 100}`}
+                          >
+                            {specialty}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </CardContent>

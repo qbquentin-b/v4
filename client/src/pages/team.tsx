@@ -1,13 +1,15 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { teamMembers } from "@/lib/team-data";
 
 export default function TeamPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const [isFounderVisible, setIsFounderVisible] = useState(false);
+  const founderRef = useRef(null);
 
   const founders = teamMembers.filter(member => member.isFounder);
   const otherMembers = teamMembers.filter(member => !member.isFounder);
@@ -46,6 +48,31 @@ export default function TeamPage() {
     }
   };
 
+  // Intersection Observer pour détecter quand la carte de la fondatrice est visible sur mobile
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsFounderVisible(true);
+        }
+      },
+      {
+        threshold: 0.3, // Se déclenche quand 30% de la carte est visible
+        rootMargin: '0px 0px -50px 0px' // Décalage pour se déclencher un peu avant
+      }
+    );
+
+    if (founderRef.current) {
+      observer.observe(founderRef.current);
+    }
+
+    return () => {
+      if (founderRef.current) {
+        observer.unobserve(founderRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen py-16 bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,9 +95,19 @@ export default function TeamPage() {
           
           <div className="max-w-6xl mx-auto">
             {founders.map((founder, index) => (
-              <Card key={founder.id} className="group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-400">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+              <Card 
+                key={founder.id} 
+                ref={founderRef}
+                className={`group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift animate-fade-in-up animation-delay-400 ${
+                  isFounderVisible ? 'md:shadow-lg' : ''
+                }`}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent transition-opacity duration-500 ${
+                  isFounderVisible ? 'opacity-100 md:opacity-0 md:group-hover:opacity-100' : 'opacity-0 group-hover:opacity-100'
+                }`}></div>
+                <div className={`absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 transition-transform duration-700 ${
+                  isFounderVisible ? 'scale-150 md:scale-100 md:group-hover:scale-150' : 'group-hover:scale-150'
+                }`}></div>
                 
                 <CardContent className="relative p-8 z-10 text-center">
                   <div className="space-y-6">
@@ -78,15 +115,21 @@ export default function TeamPage() {
                       <img 
                         src={founder.image}
                         alt={`${founder.name}, ${founder.title}`}
-                        className="w-40 h-40 rounded-full object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300 mx-auto group-hover:scale-110"
+                        className={`w-40 h-40 rounded-full object-cover shadow-lg hover-scale border-4 border-white transition-all duration-300 mx-auto ${
+                          isFounderVisible ? 'scale-110 md:scale-100 md:group-hover:scale-110' : 'group-hover:scale-110'
+                        }`}
                       />
-                      <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float">
+                      <div className={`absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg animate-float transition-opacity duration-300 ${
+                        isFounderVisible ? 'opacity-100 md:opacity-0 md:group-hover:opacity-100' : 'opacity-0 group-hover:opacity-100'
+                      }`}>
                         <span className="text-white text-lg font-bold">★</span>
                       </div>
                     </div>
                     
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">{founder.name}</h3>
+                      <h3 className={`text-2xl font-bold mb-2 transition-colors duration-300 ${
+                        isFounderVisible ? 'text-primary md:text-gray-900 md:group-hover:text-primary' : 'text-gray-900 group-hover:text-primary'
+                      }`}>{founder.name}</h3>
                       <p className="text-primary font-semibold text-lg mb-2">{founder.title}</p>
                       {founder.experience && (
                         <p className="text-gray-600 text-sm mb-4 font-medium">{founder.experience}</p>
@@ -101,7 +144,11 @@ export default function TeamPage() {
                           <Badge 
                             key={specialty} 
                             variant="secondary" 
-                            className={`bg-primary/10 text-primary hover:bg-primary hover:text-white border-primary/20 px-3 py-1 text-xs font-medium border transition-all duration-300 animation-delay-${idx * 50}`}
+                            className={`border-primary/20 px-3 py-1 text-xs font-medium border transition-all duration-300 animation-delay-${idx * 50} ${
+                              isFounderVisible 
+                                ? 'bg-primary text-white md:bg-primary/10 md:text-primary md:hover:bg-primary md:hover:text-white' 
+                                : 'bg-primary/10 text-primary hover:bg-primary hover:text-white'
+                            }`}
                           >
                             {specialty}
                           </Badge>

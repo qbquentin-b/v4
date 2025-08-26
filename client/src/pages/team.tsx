@@ -33,7 +33,7 @@ export default function TeamPage() {
                 <CardContent className="relative p-8 z-10">
                   <div className="grid lg:grid-cols-2 items-center">
                     {/* Image Section */}
-                    <div className="text-center lg:text-left lg:pr-4 lg:ml-4">
+                    <div className="text-center lg:text-left lg:pr-4 lg:ml-8">
                       <div className="relative inline-block">
                         <img 
                           src={founder.image}

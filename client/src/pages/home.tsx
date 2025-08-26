@@ -396,21 +396,21 @@ export default function HomePage() {
                 Nous contacter
               </Button>
             </Link>
+            <Link href="/services">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full"
+              >
+                Découvrir nos services
+              </Button>
+            </Link>
             <Link href="/equipe">
               <Button
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-full"
               >
                 Rencontrer l'équipe
-              </Button>
-            </Link>
-            <Link href="/services">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full"
-              >
-                Découvrir nos services
               </Button>
             </Link>
           </div>
